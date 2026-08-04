@@ -114,7 +114,7 @@ export default function AboutPage() {
               <div className="absolute -left-2.5 top-0 w-5 h-5 rounded-full bg-gray-700 border-4 border-gray-950" />
               <div className="p-5 rounded-xl bg-gray-900/50 border border-gray-800/50">
                 <span className="text-xs text-gray-500 font-medium">
-                  2021 — 2024
+                  2021 —- 2024
                 </span>
                 <h3 className="text-white font-semibold mt-1">SMP 4 KENDARI</h3>
                 <p className="text-gray-400 text-sm mt-1">
