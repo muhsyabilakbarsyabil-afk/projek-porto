@@ -103,20 +103,20 @@ const skillGroups: SkillGroup[] = [
     title: "Frontend Development",
     icon: "🌐",
     skills: [
-      { name: "HTML5 / CSS3", level: "Advanced", percentage: 90 },
-      { name: "JavaScript (ES6+)", level: "Advanced", percentage: 85 },
-      { name: "React.js", level: "Intermediate", percentage: 75 },
-      { name: "Next.js (App Router)", level: "Intermediate", percentage: 70 },
-      { name: "Tailwind CSS", level: "Advanced", percentage: 90 },
+      { name: "HTML5 / CSS3", level: "Advanced", percentage: 95 },
+      { name: "JavaScript (ES6+)", level: "Advanced", percentage: 90 },
+      { name: "React.js", level: "Intermediate", percentage: 60 },
+      { name: "Next.js (App Router)", level: "Intermediate", percentage: 90 },
+      { name: "Tailwind CSS", level: "Advanced", percentage: 60 },
     ],
   },
   {
     title: "Backend & Database",
     icon: "⚙️",
     skills: [
-      { name: "Node.js", level: "Intermediate", percentage: 70 },
-      { name: "Express.js", level: "Intermediate", percentage: 75 },
-      { name: "MySQL", level: "Intermediate", percentage: 80 },
+      { name: "Node.js", level: "Intermediate", percentage: 85 },
+      { name: "Express.js", level: "Intermediate", percentage: 80 },
+      { name: "MySQL", level: "Intermediate", percentage: 90 },
       { name: "RESTful API Development", level: "Intermediate", percentage: 80 },
     ],
   },
@@ -125,9 +125,9 @@ const skillGroups: SkillGroup[] = [
     icon: "🛠️",
     skills: [
       { name: "Git & GitHub", level: "Advanced", percentage: 85 },
-      { name: "Figma (UI/UX)", level: "Intermediate", percentage: 70 },
-      { name: "Postman", level: "Advanced", percentage: 80 },
-      { name: "VS Code", level: "Advanced", percentage: 95 },
+      { name: "Figma (UI/UX)", level: "Intermediate", percentage: 90 },
+      { name: "Postman", level: "Advanced", percentage: 75 },
+      { name: "VS Code", level: "Advanced", percentage: 100 },
     ],
   },
 ];
@@ -140,7 +140,7 @@ const certificates: Certificate[] = [
     issuer: "Dicoding Indonesia",
     date: "Januari 2025",
     credentialId: "DICODING-109283",
-    verificationUrl: "#",
+    verificationUrl: "#", // tetap untuk link verifikasi (boleh "#" jika belum ada)
   },
   {
     id: 2,

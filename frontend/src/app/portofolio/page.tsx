@@ -5,40 +5,24 @@ import { useState } from "react";
 const projects = [
   {
     id: 1,
-    title: "E-Commerce Application",
+    title: "Penjualan Toko Donat",
     category: "Web Dev",
-    description: "A full featured commerce app with cart & checkout system.",
-    tech: ["Next.js", "Tailwind CSS", "TypeScript"],
+    description: "Membantu mengembangkan website penjualan donat dengan fitur keranjang belanja dan pembayaran online.",
+    tech: ["Next.js", "Node.js", "TypeScript"],
     demoUrl: "https://demo.example.com",
     githubUrl: "https://github.com/example/ecommerce",
   },
   {
     id: 2,
-    title: "Attendance & Face Detection",
+    title: "Aplikasi Konsultasi Kesehatan",
     category: "Mobile",
-    description: "Mobile application for employee attendance tracking with face detection.",
-    tech: ["React Native", "Expo", "Firebase"],
+    description: "Aplikasi mobile untuk konsultasi kesehatan dengan fitur chat dan jadwal booking.",
+    tech: ["React Native", "Next.js", "Firebase"],
     demoUrl: "https://demo.example.com",
     githubUrl: "https://github.com/example/attendance",
   },
-  {
-    id: 3,
-    title: "School Management System",
-    category: "Web Dev",
-    description: "Web application for managing school data and student grades.",
-    tech: ["Next.js", "Tailwind CSS", "PostgreSQL"],
-    demoUrl: "https://demo.example.com",
-    githubUrl: "https://github.com/example/school-sys",
-  },
-  {
-    id: 4,
-    title: "Personal Landing Page",
-    category: "UI/UX",
-    description: "Modern landing page design with smooth animations.",
-    tech: ["Figma", "Tailwind CSS", "Framer Motion"],
-    demoUrl: "https://demo.example.com",
-    githubUrl: "https://github.com/example/landing-page",
-  },
+  
+  
 ];
 
 const categories = ["All", "Web Dev", "Mobile", "UI/UX"];

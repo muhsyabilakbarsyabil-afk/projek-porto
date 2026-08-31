@@ -112,18 +112,18 @@ export default function ContactPage() {
                   title: "Email",
                   value: "syabilakbar@gmail.com",
                   description:
-                    "Kirim email kapan saja, saya akan membalas secepatnya.",
+                    "Kirim email kapan saja, saya akan membalas jika saya lihat.",
                 },
                 {
                   icon: "📱",
                   title: "Telepon",
-                  value: "+62 812-3456-7890",
+                  value: "+62 852-3440-3661",
                   description: "Tersedia pukul 08.00 - 15.00 WIB.",
                 },
                 {
                   icon: "📍",
                   title: "Lokasi",
-                  value: "Jakarta, Indonesia",
+                  value: "makassar, Indonesia",
                   description:
                     "Bisa bekerja sama secara remote maupun offline.",
                 },

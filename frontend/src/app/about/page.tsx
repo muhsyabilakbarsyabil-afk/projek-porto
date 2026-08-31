@@ -20,7 +20,12 @@ export default function AboutPage() {
           {/* Ini photo dan info */}
           <div className="flex flex-col items-center lg:items-start gap-6">
             <div className="w-48 h-48 rounded-2xl bg-gradient-to-br from-indigo-500/20 to-violet-500/20 border border-gray-800/50 flex items-center justify-center">
-              <span className="text-6xl">👤</span>
+              <img
+                src="/foto-portofolio-syabil.jpeg"
+                alt="Profile"
+                className="w-44 h-44 rounded-2xl object-cover"
+              />
+
             </div>
 
             <div className="w-full space-y-3">
@@ -51,10 +56,9 @@ export default function AboutPage() {
               </h2>
               <p className="text-gray-400 leading-relaxed">
                 Saya adalah siswa kelas XII jurusan Rekayasa Perangkat Lunak
-                (RPL) yang memiliki passion besar di bidang web development.
-                Saya senang membangun website dan aplikasi web yang tidak
-                hanya fungsional, tetapi juga memiliki tampilan yang menarik
-                dan pengalaman pengguna yang baik.
+                (RPL) yang memiliki hobi di bidang game.
+                Saya senang bermain game mobile seperti pubg,mobile legends dan freafire,
+                saya juga sering meningikuti tournament online maupun offline.
               </p>
             </div>
 
@@ -63,11 +67,10 @@ export default function AboutPage() {
                 Perjalanan Saya
               </h2>
               <p className="text-gray-400 leading-relaxed">
-                Perjalanan saya di dunia programming dimulai sejak kelas X
-                ketika pertama kali belajar HTML dan CSS. Sejak saat itu,
-                saya terus mengeksplorasi berbagai teknologi mulai dari
-                JavaScript, React, Next.js hingga backend dengan Express.js
-                dan database MySQL.
+                Perjalanan saya di dunia gamers dimulai sejak kelas 7 SMP,
+                ketika awal saya fokus ke dunia game. Sejak saat itu,
+                saya sangat tertarik dengan yang namanya pubg mobile, mobile legends dan freefire.
+               
               </p>
             </div>
 
@@ -76,10 +79,11 @@ export default function AboutPage() {
                 Tujuan Saya
               </h2>
               <p className="text-gray-400 leading-relaxed">
-                Saya ingin terus berkembang menjadi full-stack web developer
-                yang handal. Melalui portofolio ini, saya ingin menunjukkan
-                hasil kerja dan kemampuan yang telah saya bangun selama
-                belajar di jurusan RPL.
+                Saya ingin terus berkembang menjadi gamers,atau bisa di bilang pro player. 
+                saya sangat ingin seperti para gamers profesional yang bisa mengikuti tournament besar dan bisa menjadi juara,
+                dan saya juga ingin menjadi seorang gamers yang bisa menginspirasi para gamers lainnya,
+                dan membanggakan orangtua.
+               
               </p>
             </div>
           </div>

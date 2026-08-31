@@ -1,9 +1,9 @@
 const testimonials = [
   {
     id: 1,
-    name: "Ahmad Dahlan, S.T.",
+    name: "ALIF ANHAR, S.KOM.",
     role: "Kepala Jurusan RPL",
-    company: "SMK Negeri 1",
+    company: "SMK TELKOM MAKASSAR",
     avatar: "AD",
     stars: 5,
     quote:
@@ -11,13 +11,23 @@ const testimonials = [
   },
   {
     id: 2,
-    name: "Siti Rahma, M.Kom.",
+    name: "ALI AKBAR S.T.",
     role: "Guru Produktif Web",
-    company: "SMK Negeri 1",
+    company: "SMK TELKOM MAKASSAR",
     avatar: "SR",
     stars: 5,
     quote:
       "Selalu menyelesaikan tugas proyek tepat waktu dengan kualitas UI/UX yang sangat menarik dan fungsionalitas yang teruji.",
+  },
+  {
+    id: 3,
+    name: "BU RANI S.T.",
+    role: "Guru Produktif RPL",
+    company: "SMK TELKOM MAKASSAR",
+    avatar: "SR",
+    stars: 5,
+    quote:
+      "Siswa yang sangat berdedikasi dan memiliki pemahaman mendalam tentang konsep modern web development. Hasil kodingannya selalu bersih dan rapi.",
   },
 ];
 
@@ -31,7 +41,7 @@ export default function TestimonialPage() {
         </p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
         {testimonials.map((test) => (
           <div
             key={test.id}
@@ -49,7 +59,7 @@ export default function TestimonialPage() {
 
               {/* Quote Block */}
               <blockquote className="text-gray-300 italic leading-relaxed text-sm mb-6">
-                "{test.quote}"
+                {test.quote}
               </blockquote>
             </div>
 

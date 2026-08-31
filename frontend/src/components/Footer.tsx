@@ -1,16 +1,19 @@
 import Link from "next/link";
 
 const quickLinks = [
-  { href: "/", label: "Home" },
+  { href: "/Home", label: "Home" },
   { href: "/about", label: "About" },
   { href: "/portfolio", label: "Portfolio" },
+  { href: "/skills", label: "Skills" },
+  { href: "/certificates", label: "Certificates" },
+  { href: "/testimonials", label: "Testimonials" },
   { href: "/contact", label: "Contact" },
 ];
 
 const socialLinks = [
-  { href: "#", label: "GitHub" },
-  { href: "#", label: "LinkedIn" },
-  { href: "#", label: "Instagram" },
+  { href: "https://github.com/muhsyabilakbarsyabil-afk", label: "GitHub" },
+  { href: "https://www.linkedin.com/authwall?trk=bf&trkInfo=AQEj_1A0pUxi9gAAAZ_Vcx1YOe1SoNGD6STv38KdFvcn30LCCIulhMDpynxmaRlCeSKmTj8gKDryymlgbbw7HbabMfuCB0lRVbFoKZ5-L0l3-enZU70_tiBzAhcpwBL4qJ-Ym0o=&original_referer=&sessionRedirect=https%3A%2F%2Fwww.linkedin.com%2Fin%2Fsyabil-muh-syabil-akbar-6b4693427", label: "LinkedIn" },
+  { href: "https://www.instagram.com/ssyabillll?igsh=MWl6amxmZTcwaDFiMg%3D%3D&utm_source=qr", label: "Instagram" },
 ];
 
 export default function Footer() {
@@ -24,9 +27,7 @@ export default function Footer() {
               MyPortfolio
             </h3>
             <p className="text-gray-400 text-sm leading-relaxed">
-              Siswa XII RPL 1 yang passionate di bidang web development.
-              Membangun pengalaman melalui project nyata dan terus belajar
-              teknologi terbaru.
+              Siswa XII RPL 1 yang suka bermain game.
             </p>
           </div>
 
