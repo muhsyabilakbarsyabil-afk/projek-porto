@@ -1,22 +1,30 @@
+"use client";
+
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 const quickLinks = [
-  { href: "/Home", label: "Home" },
+  { href: "/", label: "Home" },
   { href: "/about", label: "About" },
-  { href: "/portfolio", label: "Portfolio" },
+  { href: "/portofolio", label: "Portofolio" },
   { href: "/skills", label: "Skills" },
   { href: "/certificates", label: "Certificates" },
   { href: "/testimonials", label: "Testimonials" },
-  { href: "/contact", label: "Contact" },
-];
+  { href: "/contact", label: "Contact" },];
 
 const socialLinks = [
-  { href: "https://github.com/muhsyabilakbarsyabil-afk", label: "GitHub" },
-  { href: "https://www.linkedin.com/authwall?trk=bf&trkInfo=AQEj_1A0pUxi9gAAAZ_Vcx1YOe1SoNGD6STv38KdFvcn30LCCIulhMDpynxmaRlCeSKmTj8gKDryymlgbbw7HbabMfuCB0lRVbFoKZ5-L0l3-enZU70_tiBzAhcpwBL4qJ-Ym0o=&original_referer=&sessionRedirect=https%3A%2F%2Fwww.linkedin.com%2Fin%2Fsyabil-muh-syabil-akbar-6b4693427", label: "LinkedIn" },
-  { href: "https://www.instagram.com/ssyabillll?igsh=MWl6amxmZTcwaDFiMg%3D%3D&utm_source=qr", label: "Instagram" },
+  { href: "https://github.com/jeki101108", label: "GitHub" },
+  { href: "https://www.linkedin.com/in/muhammad-zaky-alkhaer-ahmad-8295a7426?utm_source=share_via&utm_content=profile&utm_medium=member_android", label: "LinkedIn" },
+  { href: "https://www.instagram.com/kyy101108?igsh=MWc1cGF0bTBlbGljaA%3D%3D", label: "Instagram" },
 ];
 
 export default function Footer() {
+  const pathname = usePathname();
+
+  if (pathname?.startsWith("/admin")) {
+    return null;
+  }
+
   return (
     <footer className="bg-gray-950 border-t border-gray-800/50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
@@ -27,7 +35,9 @@ export default function Footer() {
               MyPortfolio
             </h3>
             <p className="text-gray-400 text-sm leading-relaxed">
-              Siswa XII RPL 1 yang suka bermain game.
+              Siswa XII RPL 1 yang passionate di bidang web development.
+              Membangun pengalaman melalui project nyata dan terus belajar
+              teknologi terbaru.
             </p>
           </div>
 
@@ -67,13 +77,24 @@ export default function Footer() {
             </ul>
           </div>
         </div>
-              
+
         {/* Tombol Bar */}
         <div className="mt-10 pt-6 border-t border-gray-800/50 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-gray-500 text-sm">
-            ©️ {new Date().getFullYear()} MyPortfolio. All rights reserved.
+            © {new Date().getFullYear()} MyPortfolio. All rights reserved.
           </p>
-          <p className="text-gray-600 text-xs">Built with Next.js & Tailwind CSS</p>
+          <div className="flex items-center gap-4">
+            <p className="text-gray-600 text-xs">
+              Built with Next.js &amp; Tailwind CSS
+            </p>
+            <span className="text-gray-700 text-xs">•</span>
+            <Link
+              href="/admin"
+              className="text-xs text-gray-500 hover:text-indigo-400 transition-colors duration-300 flex items-center gap-1"
+            >
+              🔒 Admin Panel
+            </Link>
+          </div>
         </div>
       </div>
     </footer>

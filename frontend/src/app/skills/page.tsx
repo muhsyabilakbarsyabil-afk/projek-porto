@@ -1,92 +1,101 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { fetchCertificates } from "@/data/api";
-import { Certificate } from "@/data/mockData";
-import SkeletonCard from "@/components/SkeletonCard";
+import { fetchSkills } from "@/Data/api";
+import { SkillGroup } from "@/Data/mockData";
 
-export default function CertificatePage() {
-  const [certificatesList, setCertificatesList] = useState<Certificate[]>([]);
+export default function SkillsPage() {
+  const [skillGroupsList, setSkillGroupsList] = useState<SkillGroup[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    async function loadCertificates() {
+    async function loadSkills() {
       try {
         setLoading(true);
-        const data = await fetchCertificates();
-        setCertificatesList(data);
+        const data = await fetchSkills();
+        setSkillGroupsList(data);
       } catch (error) {
-        console.error("Failed to fetch certificates:", error);
+        console.error("Failed to fetch skills:", error);
       } finally {
         setLoading(false);
       }
     }
-    loadCertificates();
+    loadSkills();
   }, []);
 
   return (
     <section className="py-16 sm:py-20 min-h-screen">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header */}
         <div className="text-center mb-16">
           <h1 className="text-4xl sm:text-5xl font-bold text-white mb-4">
             My{" "}
             <span className="bg-gradient-to-r from-indigo-400 to-violet-400 bg-clip-text text-transparent">
-              Certificates
+              Skills
             </span>
           </h1>
           <p className="text-gray-400 max-w-xl mx-auto">
-            Sertifikasi keahlian dan pencapaian akademik yang saya raih selama menempuh pendidikan di bidang Informatika.
+            Kombinasi keahlian teknis dan kakas bantu yang saya gunakan untuk mewujudkan konsep menjadi website yang fungsional.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {loading
-            ? Array.from({ length: 3 }).map((_, i) => (
-                <SkeletonCard key={i} variant="certificate" />
-              ))
-            : certificatesList.map((cert) => (
-                <div
-                  key={cert.id}
-                  className="group p-6 rounded-2xl bg-gray-900/50 border border-gray-800/50 hover:border-indigo-500/30 hover:-translate-y-1 transition-all duration-300"
-                >
-                  <div>
-                    <div className="w-12 h-12 rounded-xl bg-indigo-500/10 flex items-center justify-center mb-6 group-hover:bg-indigo-500/20 transition-colors duration-300">
-                      <span className="text-2xl">🏅</span>
-                    </div>
-                  </div>
-
-                  <h3 className="text-lg font-bold text-white mb-2 group-hover:text-indigo-400 transition-colors duration-300 leading-snug">
-                    {cert.title}
-                  </h3>
-
-                  <p className="text-indigo-300 text-sm font-semibold mb-4">
-                    {cert.issuer}
-                  </p>
-
-                  <div className="space-y-1.5 text-xs text-gray-500">
-                    <div>
-                      <span className="font-medium text-gray-400">Diterbitkan:</span>{" "}
-                      {cert.date}
-                    </div>
-                    <div>
-                      <span className="font-medium text-gray-400">ID Kredensial:</span>{" "}
-                      {cert.credentialId}
-                    </div>
-                  </div>
-
-                  <div className="mt-8 pt-4 border-t border-gray-800/50">
-                    
-                      href={cert.verificationUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1 text-sm font-semibold text-white hover:text-indigo-400 transition-colors duration-300"
-                    >
-                      Lihat Kredensial <span className="text-xs">↗️</span>
-                    </a>
-                  </div>
+            ? Array.from({ length: 3 }).map((_, idx) => (
+              <div
+                key={idx}
+                className="p-6 sm:p-8 rounded-2xl bg-gray-900/40 border border-gray-800/40 animate-pulse"
+              >
+                <div className="flex items-center gap-3 mb-8 pb-4 border-b border-gray-800/40">
+                  <div className="w-8 h-8 rounded bg-gray-800" />
+                  <div className="h-6 bg-gray-800 rounded w-1/2" />
                 </div>
-              ))}
+
+                <div className="space-y-6">
+                  {[1, 2, 3, 4].map((i) => (
+                    <div key={i}>
+                      <div className="flex justify-between items-center mb-2">
+                        <div className="h-4 bg-gray-800 rounded w-1/3" />
+                        <div className="h-4 bg-gray-800 rounded w-12" />
+                      </div>
+                      <div className="w-full h-2 rounded-full bg-gray-800" />
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ))
+            : skillGroupsList.map((group) => (
+              <div
+                key={group.title}
+                className="p-6 sm:p-8 rounded-2xl bg-gray-900/50 border border-gray-800/50"
+              >
+                <div className="flex items-center gap-3 mb-8 pb-4 border-b border-gray-800/50">
+                  <span className="text-3xl">{group.icon}</span>
+                  <h2 className="text-xl font-bold text-white">{group.title}</h2>
+                </div>
+
+                <div className="space-y-6">
+                  {group.skills.map((skill) => (
+                    <div key={skill.name}>
+                      <div className="flex justify-between items-center mb-2">
+                        <span className="text-sm font-semibold text-white">
+                          {skill.name}
+                        </span>
+                        <span className="text-xs font-semibold px-2 py-0.5 rounded bg-indigo-500/10 text-indigo-300">
+                          {skill.level}
+                        </span>
+                      </div>
+                      <div className="w-full h-2 rounded-full bg-gray-800 overflow-hidden">
+                        {/* Progress Bar Indicator */}
+                        <div
+                          className="h-full bg-gradient-to-r from-indigo-500 to-violet-500 rounded-full transition-all duration-1000 ease-out"
+                          style={{ width: `${skill.percentage}%` }}
+                        />
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ))}
         </div>
       </div>
     </section>

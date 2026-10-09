@@ -1,88 +1,85 @@
-const testimonials = [
-  {
-    id: 1,
-    name: "ALIF ANHAR, S.KOM.",
-    role: "Kepala Jurusan RPL",
-    company: "SMK TELKOM MAKASSAR",
-    avatar: "AD",
-    stars: 5,
-    quote:
-      "Siswa yang sangat berdedikasi dan memiliki pemahaman mendalam tentang konsep modern web development. Hasil kodingannya selalu bersih dan rapi.",
-  },
-  {
-    id: 2,
-    name: "ALI AKBAR S.T.",
-    role: "Guru Produktif Web",
-    company: "SMK TELKOM MAKASSAR",
-    avatar: "SR",
-    stars: 5,
-    quote:
-      "Selalu menyelesaikan tugas proyek tepat waktu dengan kualitas UI/UX yang sangat menarik dan fungsionalitas yang teruji.",
-  },
-  {
-    id: 3,
-    name: "BU RANI S.T.",
-    role: "Guru Produktif RPL",
-    company: "SMK TELKOM MAKASSAR",
-    avatar: "SR",
-    stars: 5,
-    quote:
-      "Siswa yang sangat berdedikasi dan memiliki pemahaman mendalam tentang konsep modern web development. Hasil kodingannya selalu bersih dan rapi.",
-  },
-];
+"use client";
+
+import { useState, useEffect } from "react";
+import { fetchTestimonials } from "@/Data/api";
+import { Testimonial } from "@/Data/mockData";
+import SkeletonCard from "@/components/SkeletonCard";
 
 export default function TestimonialPage() {
+  const [testimonialsList, setTestimonialsList] = useState<Testimonial[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    async function loadTestimonials() {
+      try {
+        setLoading(true);
+        const data = await fetchTestimonials();
+        setTestimonialsList(data);
+      } catch (error) {
+        console.error("Failed to fetch testimonials:", error);
+      } finally {
+        setLoading(false);
+      }
+    }
+    loadTestimonials();
+  }, []);
+
   return (
-    <div className="container mx-auto px-4 py-12">
-      <div className="text-center mb-12">
-        <h1 className="text-3xl font-bold text-white mb-4">Testimonials</h1>
-        <p className="text-gray-400 max-w-2xl mx-auto">
-          Apa kata para pengajar dan rekan sejawat mengenai dedikasi, keterampilan, dan kerja sama tim saya saat berkolaborasi.
-        </p>
+    <section className="py-16 sm:py-20 min-h-screen">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-16">
+          <h1 className="text-4xl sm:text-5xl font-bold text-white mb-4">
+            Testimonials
+          </h1>
+          <p className="text-gray-400 max-w-xl mx-auto">
+            Apa pendapat para guru dan rekan sejawat mengenai dedikasi, keterampilan, dan etos kerja saya selama berkolaborasi.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {loading
+            ? Array.from({ length: 3 }).map((_, i) => (
+                <SkeletonCard key={i} />
+              ))
+            : testimonialsList.map((test) => (
+                <div
+                  key={test.id}
+                  className="p-6 sm:p-8 rounded-2xl bg-gray-900/50 border border-gray-800/50 hover:border-indigo-500/30 transition-all duration-300 flex flex-col justify-between"
+                >
+                  <div>
+                    <div className="flex gap-1 mb-6">
+                      {Array.from({ length: test.stars }).map((_, i) => (
+                        <span key={i} className="text-amber-400 text-lg">
+                          ★
+                        </span>
+                      ))}
+                    </div>
+
+                    <blockquote className="text-gray-300 italic leading-relaxed text-sm sm:text-base mb-8">
+                      &ldquo;{test.quote}&rdquo;
+                    </blockquote>
+                  </div>
+
+                  <div className="flex items-center gap-4 pt-4 border-t border-gray-800/50">
+                    <div className="w-12 h-12 rounded-full bg-indigo-500/10 flex items-center justify-center text-2xl shrink-0 border border-gray-800">
+                      <img src={test.avatar} alt={test.name} className="w-full h-full object-cover rounded-full" />
+                    </div>
+                    <div>
+                      <h4 className="text-sm font-bold text-white leading-none">
+                        {test.name}
+                      </h4>
+                      <p className="text-xs text-indigo-400 mt-1.5 leading-none">
+                        {test.role}
+                      </p>
+                      <p className="text-xs text-gray-500 mt-1 leading-none">
+                        {test.company}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              ))}
+        </div>
       </div>
-
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
-        {testimonials.map((test) => (
-          <div
-            key={test.id}
-            className="bg-gray-900/60 border border-gray-800 rounded-xl p-6 transition-all duration-300 hover:border-indigo-500/50 flex flex-col justify-between"
-          >
-            {/* Rating Stars */}
-            <div>
-              <div className="flex items-center gap-1 text-amber-400 mb-4">
-                {Array.from({ length: test.stars }).map((_, i) => (
-                  <span key={i} className="text-lg">
-                    ★
-                  </span>
-                ))}
-              </div>
-
-              {/* Quote Block */}
-              <blockquote className="text-gray-300 italic leading-relaxed text-sm mb-6">
-                {test.quote}
-              </blockquote>
-            </div>
-
-            {/* Author Info */}
-            <div className="flex items-center gap-3 pt-4 border-t border-gray-800/80">
-              <div className="w-10 h-10 rounded-full bg-indigo-600/20 text-indigo-400 flex items-center justify-center font-bold text-sm shrink-0 border border-indigo-500/30">
-                {test.avatar}
-              </div>
-              <div>
-                <h4 className="text-sm font-bold text-white leading-none mb-1">
-                  {test.name}
-                </h4>
-                <p className="text-xs text-indigo-400 leading-none mb-1">
-                  {test.role}
-                </p>
-                <p className="text-xs text-gray-500 leading-none">
-                  {test.company}
-                </p>
-              </div>
-            </div>
-          </div>
-        ))}
-      </div>
-    </div>
+    </section>
   );
 }

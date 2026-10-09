@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation";
 import { useState } from "react";
 
 const navLinks = [
-  { href: "/Home", label: "Home" },
+  { href: "/", label: "Home" },
   { href: "/about", label: "About" },
   { href: "/portofolio", label: "Portofolio" },
   { href: "/skills", label: "Skills" },
@@ -25,9 +25,9 @@ export default function Navbar() {
           {/* Ini Logo */}
           <Link
             href="/"
-            className="text-xl font-bold bg-gradient-to-r from-indigo-400 via-violet-400 to-purple-400 bg-clip-text text-transparent hover:from-indigo-300 hover:to-violet-300 transition-all duration-300"
+            className="text-xl font-bold bg-gradient-to-r from-indigo-400 to-violet-400 bg-clip-text text-transparent hover:from-indigo-300 hover:to-violet-300"
           >
-            MyPortfolio
+            MyPortofolio
           </Link>
 
           {/* Navigasi untuk Desktop */}
@@ -53,7 +53,7 @@ export default function Navbar() {
           {/* Tombol Hamburger untuk layar mobile */}
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
-            className="md:hidden relative w-10 h-10 flex items-center justify-center rounded-lg text-gray-400 hover:text-white hover:bg-gray-800/50 transition-all duration-300"
+            className="md:hidden relative w-10 h-10 flex items-center justify-center rounded-lg text-gray-400 hover:text-white hover:bg-gray-800/50"
             aria-label="Toggle menu"
           >
             <div className="flex flex-col gap-1.5">
@@ -75,32 +75,32 @@ export default function Navbar() {
             </div>
           </button>
         </div>
+      </div>
 
-        {/* Menu untuk layar mobile */}
-        <div
-          className={`md:hidden transition-all duration-300 overflow-hidden ${
-            mobileOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
-          }`}
-        >
-          <div className="px-4 py-3 space-y-1 bg-gray-950/95 backdrop-blur-xl border-t border-gray-800/50">
-            {navLinks.map((link) => {
-              const isActive = pathname === link.href;
-              return (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  onClick={() => setMobileOpen(false)}
-                  className={`block px-4 py-2.5 rounded-lg text-sm font-medium transition-all duration-300 ${
-                    isActive
-                      ? "bg-indigo-500/20 text-indigo-300"
-                      : "text-gray-400 hover:text-white hover:bg-gray-800/50"
-                  }`}
-                >
-                  {link.label}
-                </Link>
-              );
-            })}
-          </div>
+      {/* menu untuk layar mobile */}
+      <div
+        className={`md:hidden transition-all duration-300 overflow-hidden ${
+          mobileOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
+        }`}
+      >
+        <div className="px-4 py-3 space-y-1 bg-gray-950/95 backdrop-blur-xl border-t border-gray-800/50">
+          {navLinks.map((link) => {
+            const isActive = pathname === link.href;
+            return (
+              <Link
+                key={link.href}
+                href={link.href}
+                onClick={() => setMobileOpen(false)}
+                className={`block px-4 py-2.5 rounded-lg text-sm font-medium transition-all duration-300 ${
+                  isActive
+                    ? "bg-indigo-500/20 text-indigo-300"
+                    : "text-gray-400 hover:text-white hover:bg-gray-800/50"
+                }`}
+              >
+                {link.label}
+              </Link>
+            );
+          })}
         </div>
       </div>
     </nav>

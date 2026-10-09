@@ -70,9 +70,9 @@ const projects: Project[] = [
   },
   {
     id: 4,
-    title: "Personal Landing Page Portfolio",
+    title: "Personal Landing Page Portofolio",
     category: "Web Dev",
-    description: "Highly responsive, premium dark-themed portfolio site built with speed and animations.",
+    description: "Highly responsive, premium dark-themed portofolio site built with speed and animations.",
     tech: ["HTML", "Vanilla JS", "Tailwind CSS"],
     demoUrl: "#",
     githubUrl: "#",
@@ -141,6 +141,7 @@ const certificates: Certificate[] = [
     date: "Januari 2025",
     credentialId: "DICODING-109283",
     verificationUrl: "#", // tetap untuk link verifikasi (boleh "#" jika belum ada)
+   
   },
   {
     id: 2,
